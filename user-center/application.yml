@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  ssl:
+    key-store: classpath:ssl/zuul.pfx
+    key-store-password: Kll1I9ep
+    key-store-type: PKCS12
+spring:
+  application:
+    name: user-server
+  security:
+    user:
+      name: haoyp
+      password: 881121
+  datasource:
+    url: jdbc:mysql://39.105.178.185/memorial?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    password: 881121
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+  profiles:
+    active: dev
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@39.105.178.185:8761/eureka/
+  instance:
+    prefer-ip-address: true
