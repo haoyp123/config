@@ -1,5 +1,6 @@
 server:
   port: 8080
+spring:
   security:
     user:
       name: haoyp
@@ -16,13 +17,6 @@ server:
     port: 6679
     host: 39.105.178.185
     password: 881121
-  cloud:
-    config:
-      discovery:
-        enabled: true
-        service-id: config-server
-      profile: dev
-      label: master
 eureka:
   client:
     serviceUrl:
